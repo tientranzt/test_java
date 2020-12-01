@@ -36,7 +36,7 @@ public class MainClass {
         team2.addTeamMember(new Player("team2-p6"));
         team2.addTeamMember(new Player("team2-p7"));
 
-        Game  game1 = new Game(team1, team2);
+        Game game1 = new Game(team1, team2);
 
         game1.generateMatch();
         game1.setScore(team1);
@@ -143,8 +143,24 @@ class Game {
         this.team2 = team2;
     }
 
+    public boolean isTeamValid(ArrayList<Player> memberList) {
+        if (memberList.size() < 7) {
+            return false;
+        }
+        return true;
+    }
+
     public void generateMatch() {
-        System.out.println(team1.getName() + " and " + team2.getName() + " is playing game");
+        boolean isValidTeam1 = isTeamValid(team1.getTeamMember());
+        boolean isValidTeam2 = isTeamValid(team2.getTeamMember());
+
+        if(isValidTeam1 && isValidTeam2){
+            System.out.println(team1.getName() + " and " + team2.getName() + " is playing game");
+        }
+        else {
+            System.out.println("Team size is not valid");
+        }
+
     }
 
     public void setScore(Team team) {
@@ -164,7 +180,7 @@ class Game {
         }
     }
 
-    public void showResult(){
+    public void showResult() {
         System.out.println(team1.getName() + " " + scoreTeam1 + " vs " + team2.getName() + " " + scoreTeam2);
     }
 }
