@@ -165,6 +165,6 @@ class Game {
     }
 
     public void showResult(){
-        System.out.println();
+        System.out.println(team1.getName() + " " + scoreTeam1 + " vs " + team2.getName() + " " + scoreTeam2);
     }
 }
