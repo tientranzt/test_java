@@ -1,16 +1,48 @@
-import java.util.List;
+import java.util.ArrayList;
+
 /**
- * ICT companies in Can Tho plan to organize Futsal tournaments (called CT ICT friendship). Let's develop a java-based application
+ * ICT companies in Can Tho plan to organize Futsal tournaments (called CT ICT friendship).
+ * Let's develop a java-based application
  * to manage registered teams, generate match schedules and record results of matches.
  * Some requirements:
  * - A team must have at least 7 players and maximum is 12
  * - A player must be working for that company (each company has a team)
- *
- * */
+ */
 
 public class MainClass {
 
     public static void main(String[] args) {
+
+        Team team1 = new Team("team1");
+        Team team2 = new Team("team2");
+        Company company1 = new Company("ict1", team1);
+        Company company2 = new Company("ict2", team2);
+
+        //add player for team 1
+        team1.addTeamMember(new Player("team1-p1"));
+        team1.addTeamMember(new Player("team1-p2"));
+        team1.addTeamMember(new Player("team1-p3"));
+        team1.addTeamMember(new Player("team1-p4"));
+        team1.addTeamMember(new Player("team1-p5"));
+        team1.addTeamMember(new Player("team1-p6"));
+        team1.addTeamMember(new Player("team1-p7"));
+
+        // add player for team 2
+        team2.addTeamMember(new Player("team2-p1"));
+        team2.addTeamMember(new Player("team2-p2"));
+        team2.addTeamMember(new Player("team2-p3"));
+        team2.addTeamMember(new Player("team2-p4"));
+        team2.addTeamMember(new Player("team2-p5"));
+        team2.addTeamMember(new Player("team2-p6"));
+        team2.addTeamMember(new Player("team2-p7"));
+
+        Game  game1 = new Game(team1, team2);
+
+        game1.generateMatch();
+        game1.setScore(team1);
+        game1.setScore(team1);
+        game1.endGame();
+
 
     }
 
@@ -19,146 +51,120 @@ public class MainClass {
 
 class Company {
     private String name;
-    private String location;
+    private Team team;
 
-    public Company(String name, String location) {
+    public Company(String name, Team team) {
         this.name = name;
-        this.location = location;
+        this.team = team;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+}
+
+
+class Team {
+    private String name;
+    private ArrayList<Player> teamMember;
+    private int win = 0;
+    private int lose = 0;
+    private int tie = 0;
+
+    public Team() {
+    }
+
+    public Team(String name) {
+        this.name = name;
+    }
+
+    public void addTeamMember(Player player) {
+        if (player == null) System.out.println("Player invalid");
+        else if (teamMember.size() < 7) {
+            teamMember.add(player);
+            System.out.println("Need more player");
+
+        } else if (teamMember.size() < 11) {
+            teamMember.add(player);
+            System.out.println("Size of team can be extended to 12");
+        } else if (teamMember.size() == 11) System.out.println("Maximum member can be register");
+    }
+
+    public ArrayList<Player> getTeamMember() {
+        return teamMember;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getLocation() {
-        return location;
+    public void setWin() {
+        this.win++;
     }
 
-}
+    public void setLose() {
+        this.lose++;
+    }
 
+    public void setTie() {
+        this.tie++;
+    }
+}
 
 class Player {
-
     private String name;
-    private int age;
-    private String gender;
-    private Team team;
 
-
-}
-
-class Team {
-
-    private Company company;
-
-    public Team(Company companyName) {
-        this.company = companyName;
+    public Player() {
     }
 
-    public Company getCompany() {
-        return company;
+    public Player(String name) {
+        this.name = name;
     }
 
-    // register team
-}
-
-
-enum TeamValid {
-
+    public String getName() {
+        return name;
+    }
 }
 
 
 class Game {
-
-    private int scoreOfTeam1 = 0;
-    private int scoreOfTeam2 = 0;
-
-    private String nameOfTeam1;
-    private String nameOfTeam2;
+    private Team team1;
+    private Team team2;
+    private int scoreTeam1 = 0;
+    private int scoreTeam2 = 0;
 
 
-    // generate match
-    public void generateGame(List<Player> team1, List<Player> team2) {
+    public Game(Team team1) {
+        this.team1 = team1;
+    }
 
-        boolean isTeam1Valid = checkTeam(team1);
-        boolean isTeam2Valid = checkTeam(team2);
+    public Game(Team team1, Team team2) {
+        this.team1 = team1;
+        this.team2 = team2;
+    }
 
-        if (isTeam1Valid && isTeam2Valid) {
-            System.out.println("Generated match");
+    public void generateMatch() {
+        System.out.println(team1.getName() + " and " + team2.getName() + " is playing game");
+    }
+
+    public void setScore(Team team) {
+        if (team.getName().equals(team1.getName())) {
+            scoreTeam1++;
+        } else scoreTeam2++;
+    }
+
+    public void endGame() {
+        if (scoreTeam1 > scoreTeam2) {
+            team1.setWin();
+        } else if (scoreTeam2 > scoreTeam1) {
+            team2.setWin();
         } else {
-            System.out.println("Match cancel");
+            team1.setTie();
+            team2.setTie();
         }
     }
 
-
-    // check each team is valid
-    private boolean checkTeam(List<Player> listTeam){
-        int sizeOfTeam = listTeam.size();
-
-        if(sizeOfTeam == 0) return false;
-        if(!(7 >= sizeOfTeam && sizeOfTeam <= 12)){
-            System.out.println(listTeam.get(0));
-        }
-
-        return true;
-
+    public void showResult(){
+        System.out.println();
     }
-
-
-    // check team is valid
-    private boolean isTeamValid(List<Player> team1, List<Player> team2) {
-
-        int memberOfTeam1 = team1.size();
-        int memberOfTeam2 = team2.size();
-        boolean isTeamOneValid = memberOfTeam1 >= 7 && memberOfTeam1 <= 12 ;
-        boolean isTeamTwoValid = memberOfTeam1 >= 7 && memberOfTeam1 <= 12 ;
-
-        if (isTeamOneValid) {
-            return true;
-        }
-
-        else {
-            System.out.println("team");
-        }
-
-        return true;
-    }
-
-
-    // record result
-    public void updateScore(Player player){
-
-    }
-
-    // reset game
-    public void resetGame(){
-        System.out.println("Score of: ");
-    }
-
 }
-
-
-// Company
-// name
-// address
-
-
-// Player
-// name
-// age
-// gender
-// team
-
-
-// Team
-// team at least 7 players max 12
-// name
-// number of member
-// company name(Company)
-
-
-// Game
-// - register team
-// - generate match schedules
-// - results of match
-
