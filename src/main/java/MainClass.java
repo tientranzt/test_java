@@ -42,7 +42,7 @@ public class MainClass {
         game1.setScore(team1);
         game1.setScore(team1);
         game1.endGame();
-
+        game1.showResult();
 
     }
 
@@ -76,6 +76,7 @@ class Team {
 
     public Team(String name) {
         this.name = name;
+        this.teamMember = new ArrayList<>();
     }
 
     public void addTeamMember(Player player) {
@@ -154,10 +155,9 @@ class Game {
         boolean isValidTeam1 = isTeamValid(team1.getTeamMember());
         boolean isValidTeam2 = isTeamValid(team2.getTeamMember());
 
-        if(isValidTeam1 && isValidTeam2){
+        if (isValidTeam1 && isValidTeam2) {
             System.out.println(team1.getName() + " and " + team2.getName() + " is playing game");
-        }
-        else {
+        } else {
             System.out.println("Team size is not valid");
         }
 
@@ -181,6 +181,7 @@ class Game {
     }
 
     public void showResult() {
-        System.out.println(team1.getName() + " " + scoreTeam1 + " vs " + team2.getName() + " " + scoreTeam2);
+        System.out.println(team1.getName() + " " + scoreTeam1 + " : " + team2.getName() + " " + scoreTeam2);
     }
+
 }
