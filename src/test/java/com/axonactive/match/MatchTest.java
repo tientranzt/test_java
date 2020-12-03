@@ -1,12 +1,8 @@
-package com.axonactive.futsal;
+package com.axonactive.match;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.axonactive.team.Team;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.time.LocalDateTime;
 
 public class MatchTest {
 

@@ -1,13 +1,15 @@
-package com.axonactive.futsal;
+package com.axonactive.match;
 
 // match -> play -> team -> player
 
+import com.axonactive.schedule.Schedule;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
 public class Match {
+
     private Schedule schedule;
 
     private String location;
@@ -16,6 +18,8 @@ public class Match {
         this.schedule = schedule;
         this.location = location;
     }
+
+
 
 
 }

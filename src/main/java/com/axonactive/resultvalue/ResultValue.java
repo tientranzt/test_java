@@ -1,4 +1,4 @@
-package com.axonactive.futsal;
+package com.axonactive.resultvalue;
 
 
 public enum ResultValue {

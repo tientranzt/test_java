@@ -1,24 +1,23 @@
-package com.axonactive.futsal;
-
+package com.axonactive.team;
+import com.axonactive.player.Player;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Team {
-
-    private int id;
+    
+    private String logo;
 
     private String name;
 
-    private List<Player> member = new ArrayList<>();
+    private String gender;
 
-    public Team(String name) {
-        this.name = name;
-    }
+    private List<Player> member = new ArrayList<>();
 
     public void addMember(Player player) {
 
@@ -27,6 +26,7 @@ public class Team {
         } else {
             throw new IllegalStateException("Maximum size of team member");
         }
+
     }
 
 }
