@@ -7,14 +7,6 @@ public class Team {
 
     private String name;
 
-    private int score;
-
-//    private int win = 0;
-
-//    private int lose = 0;
-
-//    private int tie = 0;
-
     private List<Player> member = new ArrayList<>();
 
     public Team() {
@@ -33,6 +25,7 @@ public class Team {
         }
     }
 
+
     public List<Player> getMember() {
         return member;
     }
@@ -40,20 +33,6 @@ public class Team {
     public String getName() {
         return name;
     }
-
-
-
-//    public void setWin(int win) {
-//        this.win = win;
-//    }
-//
-//    public void setLose(int lose) {
-//        this.lose = lose;
-//    }
-//
-//    public void setTie(int tie) {
-//        this.tie = tie;
-//    }
 }
 
 
