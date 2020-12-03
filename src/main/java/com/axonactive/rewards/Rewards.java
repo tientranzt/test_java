@@ -11,4 +11,6 @@ public class Rewards {
 
     private int copperMedal;
 
+
+
 }

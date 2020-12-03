@@ -16,6 +16,8 @@ public class Match {
 
     private String location;
 
-    private int durationTime;
+    private int competitionTime;
+
+
 
 }

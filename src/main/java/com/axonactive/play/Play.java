@@ -3,10 +3,12 @@ package com.axonactive.play;
 import com.axonactive.match.Match;
 import com.axonactive.resultvalue.ResultValue;
 import com.axonactive.team.Team;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class Play {
 
@@ -15,6 +17,5 @@ public class Play {
     private Match match;
 
     private ResultValue result;
-
 
 }

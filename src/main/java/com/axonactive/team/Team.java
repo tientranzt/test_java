@@ -1,4 +1,5 @@
 package com.axonactive.team;
+import com.axonactive.contact.Contact;
 import com.axonactive.player.Player;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,8 @@ public class Team {
     private String name;
 
     private String gender;
+
+    private Contact contact;
 
     private List<Player> member = new ArrayList<>();
 
