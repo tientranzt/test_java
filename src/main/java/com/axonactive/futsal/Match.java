@@ -1,6 +1,6 @@
 package com.axonactive.futsal;
 
-
+// Vong dau -> Tran dau -> Doi -> Member
 public class Match {
     private Schedule schedule;
 
