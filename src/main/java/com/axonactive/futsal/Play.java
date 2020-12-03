@@ -1,5 +1,8 @@
 package com.axonactive.futsal;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Play {
 
     private Team team;
@@ -7,4 +10,6 @@ public class Play {
     private  Match match;
 
     private  ResultValue result;
+
+
 }

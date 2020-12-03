@@ -1,16 +1,20 @@
 package com.axonactive.futsal;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@NoArgsConstructor
 public class Team {
+
+    private int id;
 
     private String name;
 
     private List<Player> member = new ArrayList<>();
-
-    public Team() {
-    }
 
     public Team(String name) {
         this.name = name;
@@ -25,14 +29,6 @@ public class Team {
         }
     }
 
-
-    public List<Player> getMember() {
-        return member;
-    }
-
-    public String getName() {
-        return name;
-    }
 }
 
 
