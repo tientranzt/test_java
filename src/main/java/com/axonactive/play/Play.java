@@ -1,4 +1,5 @@
 package com.axonactive.play;
+
 import com.axonactive.match.Match;
 import com.axonactive.resultvalue.ResultValue;
 import com.axonactive.team.Team;
@@ -9,12 +10,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Play {
 
-
     private Team team;
 
-    private  Match match;
+    private Match match;
 
-    private  ResultValue result;
+    private ResultValue result;
 
 
 }

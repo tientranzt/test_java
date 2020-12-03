@@ -3,10 +3,12 @@ package com.axonactive.match;
 // match -> play -> team -> player
 
 import com.axonactive.schedule.Schedule;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class Match {
 
@@ -14,12 +16,6 @@ public class Match {
 
     private String location;
 
-    public Match(Schedule schedule, String location) {
-        this.schedule = schedule;
-        this.location = location;
-    }
-
-
-
+    private int durationTime;
 
 }
