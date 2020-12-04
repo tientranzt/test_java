@@ -15,7 +15,10 @@ import java.util.List;
 @AllArgsConstructor
 public class Team {
 
+
     private TeamInfo info;
+
+    private int idMatch;
 
     private Contact contact;
 
