@@ -1,9 +1,12 @@
 package com.axonactive.team;
+
 import com.axonactive.contact.Contact;
+import com.axonactive.teaminfo.TeamInfo;
 import com.axonactive.player.Player;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,26 +14,23 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Team {
-    
-    private String logo;
 
-    private String name;
-
-    private String gender;
+    private TeamInfo info;
 
     private Contact contact;
 
-    private List<Player> member = new ArrayList<>();
+    private List<Player> members = new ArrayList<>();
 
     public void addMember(Player player) {
 
-        if (member.size() < 12) {
-            member.add(player);
+        if (members.size() < 12) {
+            members.add(player);
         } else {
             throw new IllegalStateException("Maximum size of team member");
         }
 
     }
+
 
 }
 

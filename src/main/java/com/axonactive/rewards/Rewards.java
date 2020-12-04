@@ -1,16 +1,17 @@
 package com.axonactive.rewards;
-
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
+@Getter
+@Setter
 public class Rewards {
 
-    private int goldMedal;
+    private int goldMedals;
 
-    private int sliverMedal;
+    private int sliverMedals;
 
-    private int copperMedal;
-
-
+    private int copperMedals;
 
 }
